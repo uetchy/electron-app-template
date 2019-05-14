@@ -1,0 +1,69 @@
+{
+  "name": "electron-cra-starter",
+  "version": "0.0.0",
+  "main": "public/electron.js",
+  "scripts": {
+    "build": "craco build",
+    "dev": "run-p dev:*",
+    "dev:cra": "BROWSER=none craco start",
+    "dev:electron": "wait-on http://localhost:3000 && electron .",
+    "eject": "craco eject",
+    "test": "craco test"
+  },
+  "dependencies": {
+    "@craco/craco": "^5.0.2",
+    "electron": "^5.0.1",
+    "electron-is-dev": "^1.1.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1",
+    "react-tippy": "^1.2.3",
+    "styled-components": "^4.2.0"
+  },
+  "devDependencies": {
+    "electron-builder": "^20.40.2",
+    "husky": "^2.2.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.17.1",
+    "pretty-quick": "^1.10.0",
+    "typescript": "^3.4.5",
+    "wait-on": "^3.2.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "build": {
+    "appId": "com.my-website.my-app",
+    "productName": "MyApp",
+    "copyright": "Copyright © 2019 ${author}",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "homepage": "./",
+  "private": true
+}

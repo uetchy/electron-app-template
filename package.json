@@ -73,5 +73,6 @@
       "pre-commit": "pretty-quick --staged"
     }
   },
+  "license": "unlicense",
   "private": true
 }

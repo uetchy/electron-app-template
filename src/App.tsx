@@ -1,19 +1,18 @@
-import { remote } from 'electron'
-import React, { useState } from 'react'
-import styled, { keyframes } from 'styled-components'
-import 'react-tippy/dist/tippy.css'
-import { Tooltip } from 'react-tippy'
-
-import logo from './logo.svg'
+import { remote } from 'electron';
+import React, { useState } from 'react';
+import { Tooltip } from 'react-tippy';
+import 'react-tippy/dist/tippy.css';
+import styled, { keyframes } from 'styled-components';
+import logo from './logo.svg';
 
 export default function App() {
-  const [filePath, setFilePath] = useState('')
+  const [filePath, setFilePath] = useState('');
 
   async function openFile() {
-    const files = remote.dialog.showOpenDialog({
+    const { filePaths } = await remote.dialog.showOpenDialog({
       properties: ['openFile'],
-    })
-    setFilePath(files[0])
+    });
+    setFilePath(filePaths[0]);
   }
 
   return (
@@ -23,18 +22,19 @@ export default function App() {
         <Tooltip
           title="Open File Dialog"
           position="bottom"
-          trigger="mouseenter">
+          trigger="mouseenter"
+        >
           <Link onClick={openFile}>Explore</Link>
         </Tooltip>
         <p>{filePath}</p>
       </Header>
     </Container>
-  )
+  );
 }
 
 const Container = styled.div`
   text-align: center;
-`
+`;
 
 const spinAnimation = keyframes`
   from {
@@ -43,13 +43,13 @@ const spinAnimation = keyframes`
   to {
     transform: rotate(360deg);
   }
-`
+`;
 
 const Logo = styled.img`
   animation: ${spinAnimation} infinite 20s linear;
   height: 40vmin;
   pointer-events: none;
-`
+`;
 
 const Header = styled.header`
   background-color: #282c34;
@@ -60,7 +60,7 @@ const Header = styled.header`
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-`
+`;
 
 const Link = styled.button`
   background-color: #61dafb;
@@ -72,4 +72,4 @@ const Link = styled.button`
   &:hover {
     background-color: #ffffff;
   }
-`
+`;

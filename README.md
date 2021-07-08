@@ -1,4 +1,4 @@
-# Electron + Create React App Starter
+# Electron App Template
 
 ![icon](./assets/icon.png)
 
@@ -16,3 +16,7 @@ Create a package for macOS and Windows.
 ```
 yarn package
 ```
+
+## License
+
+This project is based on amazing [cawa-93/vite-electron-builder](https://github.com/cawa-93/vite-electron-builder) project.
